@@ -58,7 +58,10 @@ HttpSecuritySystemAccessory.prototype = {
                   newState = AlarmState.ALARM_TRIGGERED;
                 }
                 
-                //this.log(this.name + ' status update: ' + state + ' (' + newState + ')');
+                this.log(this.name + 'Pre Monitor: status update: ' + state + ' (' + newState + ')');
+                this.log(this.name + 'Pre Monitor:  CurrentState: " + this.alarmStateToString(this.currentState));
+                this.log(this.name + 'Pre Monitor:   TargetState: " + this.alarmStateToString(this.targetState));
+                
                 
                 if (this.currentState != newState){
                     this.log(this.name + ' new status update: ' + state);
@@ -82,6 +85,11 @@ HttpSecuritySystemAccessory.prototype = {
                         this.targetAlarmState.updateValue(this.targetState); 
                     }
                 }
+                
+
+                this.log(this.name + 'Post Monitor:  CurrentState: " + this.alarmStateToString(this.currentState));
+                this.log(this.name + 'Post Monitor:   TargetState: " + this.alarmStateToString(this.targetState));
+
                 
                 //Clear initialising flag first time this runs
                 this.initialising = false;
