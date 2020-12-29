@@ -22,11 +22,13 @@ function HttpSecuritySystemAccessory(log, config) {
     
     this.name = config.name;
     
+    this.controlURL = config['controlURL'];
     this.activateURL = config['activateURL'];
     this.statusURL = config['statusURL'];
     this.statusPollInMs = config['statusPollInMs'];
     
     log("          name: " + this.name);
+    log("    controlURL: " + this.controlURL);
     log("   activateURL: " + this.activateURL);
     log("     statusURL: " + this.statusURL);
     log("statusPollInMs: " + this.statusPollInMs);
@@ -38,6 +40,8 @@ function HttpSecuritySystemAccessory(log, config) {
 HttpSecuritySystemAccessory.prototype = {
         
     monitorAlarmState: function() {
+  
+  		url = this.controlURL + '/STATUS';
   
         let req = http.get(this.statusURL, res => {
             let recv_data = '';
