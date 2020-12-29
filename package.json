@@ -21,9 +21,9 @@
     "url": "https://github.com/PlasmaSoftUK/homebridge-http-securitysystem.git"
   },
   "bugs": {
-    "url": "github.com/PlasmaSoftUK/homebridge-http-securitysystem/issues"
+    "url": "https://github.com/PlasmaSoftUK/homebridge-http-securitysystem/issues"
   },
-  "homepage": "github.com/PlasmaSoftUK/homebridge-http-securitysystem",
+  "homepage": "https://github.com/PlasmaSoftUK/homebridge-http-securitysystem",
   "engines": {
     "node": ">=0.14.0",
     "homebridge": ">=1.0.0"
