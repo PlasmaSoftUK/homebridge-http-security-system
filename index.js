@@ -23,14 +23,10 @@ function HttpSecuritySystemAccessory(log, config) {
     this.name = config.name;
     
     this.controlURL = config['controlURL'];
-    this.activateURL = config['activateURL'];
-    this.statusURL = config['statusURL'];
     this.statusPollInMs = config['statusPollInMs'];
     
     log("          name: " + this.name);
     log("    controlURL: " + this.controlURL);
-    log("   activateURL: " + this.activateURL);
-    log("     statusURL: " + this.statusURL);
     log("statusPollInMs: " + this.statusPollInMs);
     
     this.initService();
@@ -43,7 +39,7 @@ HttpSecuritySystemAccessory.prototype = {
   
   		let url = this.controlURL + '/STATUS';
   
-        let req = http.get(this.statusURL, res => {
+        let req = http.get(url, res => {
             let recv_data = '';
             res.on('data', chunk => { recv_data += chunk});
             res.on('end', () => {
@@ -210,7 +206,7 @@ HttpSecuritySystemAccessory.prototype = {
             
             //Build Activate Alarm URL from base URL and State
             
-            let url = this.activateURL + '/' + this.alarmStateToString(state);
+            let url = this.controlURL + '/' + this.alarmStateToString(state);
             
             let req = http.get(url, res => {
 				let recv_data = '';
