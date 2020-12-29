@@ -182,7 +182,7 @@ HttpSecuritySystemAccessory.prototype = {
     getTargetState: function(callback) {
         
         //GET ALARM STATE
-        //this.log(this.name + " getTargetState: " + this.alarmStateToString(this.targetState));
+        this.log(this.name + " getTargetState: " + this.alarmStateToString(this.targetState));
         callback(null, this.targetState);
     },
     
@@ -228,7 +228,7 @@ HttpSecuritySystemAccessory.prototype = {
     
     getState: function(callback) {
 
-        //this.log(this.name + " getState: " + this.alarmStateToString(this.currentState));
+        this.log(this.name + " getState: " + this.alarmStateToString(this.currentState));
         
         callback(null, this.currentState);
     },
