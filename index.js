@@ -131,11 +131,11 @@ HttpSecuritySystemAccessory.prototype = {
 		this.log(this.name + "stateToString:  TEST STAY_ARM (" + AlarmState.STAY_ARM + ")");
 		this.log(this.name + "stateToString:  TEST AWAY_ARM (" + AlarmState.AWAY_ARM + ")");
 		this.log(this.name + "stateToString: TEST NIGHT_ARM (" + AlarmState.NIGHT_ARM + ")");
-		this.log(this.name + "stateToString:    TEST DISARM (" + AlarmState.DISARM + ")");
-		this.log(this.name + "stateToString: TEST TRIGGERED (" + AlarmState.TRIGGERED + ")");
+		this.log(this.name + "stateToString:    TEST DISARM (" + AlarmState.DISARMED + ")");
+		this.log(this.name + "stateToString: TEST TRIGGERED (" + AlarmState.TRIGGER + ")");
     
         switch (state) {
-          case AlarmState.DISARM:
+          case AlarmState.DISARMED:
             return "DISARM";
           case AlarmState.AWAY_ARM:
             return "AWAY";     
@@ -143,8 +143,8 @@ HttpSecuritySystemAccessory.prototype = {
             return "STAY";
           case AlarmState.NIGHT_ARM:
             return "NIGHT";
-          case AlarmState.TRIGGERED:
-            return "TRIGGERED";
+          case AlarmState.TRIGGER:
+            return "TRIGGER";
           default:
           	this.log(this.name + "stateToString: UNKNOWN (" + state + ")");
             return "UNKNOWN";
