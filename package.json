@@ -1,0 +1,32 @@
+{
+  "name": "homebridge-http-securitysystem",
+  "version": "1.0.0",
+  "description": "Homebridge HTTP Security System Plugin",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "security",
+    "system",
+    "alarm",
+    "http",
+    "homebridge",
+    "homebridge-plugin"
+  ],
+  "author": "PlasmaSoft",
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/PlasmaSoftUK/homebridge-http-securitysystem.git"
+  },
+  "bugs": {
+    "url": "github.com/PlasmaSoftUK/homebridge-http-securitysystem/issues"
+  },
+  "homepage": "github.com/PlasmaSoftUK/homebridge-http-securitysystem",
+  "engines": {
+    "node": ">=0.14.0",
+    "homebridge": ">=1.0.0"
+  },
+  "dependencies": {}
+}
