@@ -44,7 +44,9 @@ HttpSecuritySystemAccessory.prototype = {
             res.on('data', chunk => { recv_data += chunk});
             res.on('end', () => {
                 // recv_data contains state info.... {"alarmStatus":"Disarmed"}
-                let state = JSON.parse(recv_data).alarmStatus;
+                let newState = JSON.parse(recv_data).alarmStatus;
+                
+                /*
                 let newState = AlarmState.DISARMED;
                 if (state == "Disarmed") {
                   newState = AlarmState.DISARMED;
@@ -57,14 +59,15 @@ HttpSecuritySystemAccessory.prototype = {
                 } else if (state == "Triggered") {
                   newState = AlarmState.ALARM_TRIGGERED;
                 }
+                */
                 
-                this.log(this.name + '  Pre Monitor: Status Update: ' + state + ' (' + newState + ')');
+                this.log(this.name + '  Pre Monitor: Status Update: ' + this.alarmStateToString(newState) + ' (' + newState + ')');
                 this.log(this.name + '  Pre Monitor:  CurrentState: ' + this.alarmStateToString(this.currentState));
                 this.log(this.name + '  Pre Monitor:   TargetState: ' + this.alarmStateToString(this.targetState));
                 
                 
                 if (this.currentState != newState){
-                    this.log(this.name + ' New Status Update: ' + state);
+                    this.log(this.name + ' New Status Update: ' + newState);
                     this.currentState = newState;
                     this.currentAlarmState.updateValue(this.currentState);
                     
