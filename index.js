@@ -58,7 +58,7 @@ HttpSecuritySystemAccessory.prototype = {
                   newState = AlarmState.ALARM_TRIGGERED;
                 }
                 
-                this.log(this.name + ' status update: ' + state + ' (' + newState + ')');
+                //this.log(this.name + ' status update: ' + state + ' (' + newState + ')');
                 
                 if (this.currentState != newState){
                     this.log(this.name + ' new status update: ' + state);
@@ -98,45 +98,26 @@ HttpSecuritySystemAccessory.prototype = {
             return err.message;
         })
     },
-    
-    
-    /*
-    activateAlarm: function() {
-      
-        let req = http.get(this.activateURL, res => {
-            let recv_data = '';
-            res.on('data', chunk => { recv_data += chunk});
-            res.on('end', () => {
-                // recv_data contains state info.... {"result":"Success"}
-                let result = JSON.parse(recv_data).result;
-                this.log('Activate ' + this.name + ' request: ' + result);
 
-            });
-        });
-        req.on('error', err => {
-            this.log("Error in activateAlarm: "+ err.message);
-        })
-        
-    },
-	*/
 
 
     alarmStateToString: function(state) {
     
     /*
     
-    STAY_ARM = 0;
-	AWAY_ARM = 1;
-	NIGHT_ARM = 2;
-	DISARMED = 3;
-	ALARM_TRIGGERED = 4;
+		STAY_ARM = 0;
+		AWAY_ARM = 1;
+		NIGHT_ARM = 2;
+		DISARMED = 3;
+		ALARM_TRIGGERED = 4;
     
-    */
+    
 		this.log(this.name + "stateToString:  TEST STAY_ARM (" + AlarmState.STAY_ARM + ")");
 		this.log(this.name + "stateToString:  TEST AWAY_ARM (" + AlarmState.AWAY_ARM + ")");
 		this.log(this.name + "stateToString: TEST NIGHT_ARM (" + AlarmState.NIGHT_ARM + ")");
 		this.log(this.name + "stateToString:    TEST DISARM (" + AlarmState.DISARMED + ")");
 		this.log(this.name + "stateToString: TEST TRIGGERED (" + AlarmState.ALARM_TRIGGERED + ")");
+    */
     
         switch (state) {
           case AlarmState.DISARMED:
