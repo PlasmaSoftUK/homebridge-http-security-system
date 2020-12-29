@@ -128,6 +128,7 @@ HttpSecuritySystemAccessory.prototype = {
 	ALARM_TRIGGERED = 4;
     
     */
+    	this.log(this.name + "stateToString: TEST DIS (" + AlarmState.DISARM + ")");
     
         switch (state) {
           case AlarmState.DISARM:
