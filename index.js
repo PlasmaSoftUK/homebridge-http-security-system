@@ -148,10 +148,10 @@ HttpSecuritySystemAccessory.prototype = {
     initService: function() {
         this.securitySystem = new Service.SecuritySystem(this.name,this.name);
         
-        this.currentAlarmState = this.securitySystem.getCharacteristic(AlarmState);
+        this.currentAlarmState = this.securitySystem.getCharacteristic(Characteristic.SecuritySystemCurrentState);
         this.currentAlarmState.on('get', this.getState.bind(this));
         
-        this.targetAlarmState = this.securitySystem.getCharacteristic(Characteristic.TargetAlarmState);
+        this.targetAlarmState = this.securitySystem.getCharacteristic(Characteristic.SecuritySystemTargetState);
         this.targetAlarmState.on('set', this.setTargetState.bind(this));
         this.targetAlarmState.on('get', this.getTargetState.bind(this));
         
