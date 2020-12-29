@@ -146,12 +146,12 @@ HttpSecuritySystemAccessory.prototype = {
     },
     
     initService: function() {
-        this.alarmStateToString = new Service.SecuritySystem(this.name,this.name);
+        this.securitySystem = new Service.SecuritySystem(this.name,this.name);
         
-        this.currentAlarmState = this.alarmStateToString.getCharacteristic(AlarmState);
+        this.currentAlarmState = this.securitySystem.getCharacteristic(AlarmState);
         this.currentAlarmState.on('get', this.getState.bind(this));
         
-        this.targetAlarmState = this.alarmStateToString.getCharacteristic(Characteristic.TargetAlarmState);
+        this.targetAlarmState = this.securitySystem.getCharacteristic(Characteristic.TargetAlarmState);
         this.targetAlarmState.on('set', this.setTargetState.bind(this));
         this.targetAlarmState.on('get', this.getTargetState.bind(this));
         
@@ -233,6 +233,6 @@ HttpSecuritySystemAccessory.prototype = {
     },
     
     getServices: function() {
-        return [this.service, this.alarmStateToString];
+        return [this.service, this.securitySystem];
     }
 };
