@@ -98,7 +98,6 @@ HttpSecuritySystemAccessory.prototype = {
                 this.initialising = false;
                 
                 setTimeout(this.monitorAlarmState.bind(this), this.statusPollInMs);
-                return state;
             });
         });
         req.on('error', err => {
@@ -106,7 +105,6 @@ HttpSecuritySystemAccessory.prototype = {
             this.log("Error in monitorAlarmState: "+ err.message);
 
             setTimeout(this.monitorAlarmState.bind(this), this.statusPollInMs);
-            return err.message;
         })
     },
 
@@ -182,14 +180,13 @@ HttpSecuritySystemAccessory.prototype = {
         //Set all states to closed
         this.currentState = AlarmState.DISARMED;
         this.targetState = AlarmState.DISARMED; 
-        this.currentStateString = "Disarmed";
         this.log(" Initial State: Disarmed");
 
         this.currentAlarmState.updateValue(this.currentState);
         this.targetAlarmState.updateValue(this.targetState);
         
         //Trigger Monitoring
-        this.currentStateString = this.monitorAlarmState();
+        this.monitorAlarmState();
     },
     
     getTargetState: function(callback) {
