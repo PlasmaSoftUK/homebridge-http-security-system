@@ -45,15 +45,17 @@ HttpSecuritySystemAccessory.prototype = {
             res.on('end', () => {
                 // recv_data contains state info.... {"alarmStatus":"Disarmed"}
                 let state = JSON.parse(recv_data).alarmStatus;
-                let newState = AlarmState.DISARM;
+                let newState = AlarmState.DISARMED;
                 if (state == "Disarmed") {
-                  newState = AlarmState.DISARM;
+                  newState = AlarmState.DISARMED;
                 } else if (state == "Stay Armed") {
                   newState = AlarmState.STAY_ARM;
                 } else if (state == "Away Armed") {
                   newState = AlarmState.AWAY_ARM;
                 } else if (state == "Night Armed") {
                   newState = AlarmState.NIGHT_ARM;
+                } else if (state == "Triggered") {
+                  newState = AlarmState.ALARM_TRIGGERED;
                 }
                 
                 if (this.currentState != newState){
@@ -146,7 +148,7 @@ HttpSecuritySystemAccessory.prototype = {
           case AlarmState.ALARM_TRIGGERED:
             return "TRIGGERED";
           default:
-          	this.log(this.name + "stateToString: UNKNOWN (" + state + ")");
+          	this.log(this.name + "stateToString: UNKNOWN STATE (" + state + ")");
             return "UNKNOWN";
         }
     },
@@ -160,6 +162,18 @@ HttpSecuritySystemAccessory.prototype = {
         this.targetAlarmState = this.securitySystem.getCharacteristic(Characteristic.SecuritySystemTargetState);
         this.targetAlarmState.on('set', this.setTargetState.bind(this));
         this.targetAlarmState.on('get', this.getTargetState.bind(this));
+        
+        
+        /*
+        
+        Use updateCharacteristic if you want to change the state of a characteristic without triggering the set handler.
+
+		eg.
+
+		this.service.updateCharacteristic(Characteristic.SecuritySystemCurrentState, Characteristic.SecuritySystemCurrentState.DISARMED);
+        
+        */
+        
         
         this.service = new Service.AccessoryInformation();
         this.service
