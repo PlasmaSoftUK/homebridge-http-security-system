@@ -58,30 +58,30 @@ HttpSecuritySystemAccessory.prototype = {
                   newState = AlarmState.ALARM_TRIGGERED;
                 }
                 
-                this.log(this.name + ' Pre Monitor: Status Update: ' + state + ' (' + newState + ')');
-                this.log(this.name + ' Pre Monitor:  CurrentState: ' + this.alarmStateToString(this.currentState));
-                this.log(this.name + ' Pre Monitor:   TargetState: ' + this.alarmStateToString(this.targetState));
+                this.log(this.name + '  Pre Monitor: Status Update: ' + state + ' (' + newState + ')');
+                this.log(this.name + '  Pre Monitor:  CurrentState: ' + this.alarmStateToString(this.currentState));
+                this.log(this.name + '  Pre Monitor:   TargetState: ' + this.alarmStateToString(this.targetState));
                 
                 
                 if (this.currentState != newState){
-                    this.log(this.name + ' new status update: ' + state);
+                    this.log(this.name + ' New Status Update: ' + state);
                     this.currentState = newState;
                     this.currentAlarmState.updateValue(this.currentState);
                     
                
                     //Check if Alarm is changing state from external activation if so update target state
-                    if(this.initialising && newState != AlarmState.DISARM){
+                    if(this.initialising && newState != AlarmState.DISARMED){
                         //We have initialised and the Alarm is already armed update target state
                         this.log(this.name + ' Initial Status is now Armed');
                         this.targetState = newState;
                         this.targetAlarmState.updateValue(this.targetState);                   
-                    } else if(this.targetState == AlarmState.DISARM && newState != AlarmState.DISARM) {
+                    } else if(this.targetState == AlarmState.DISARMED && newState != AlarmState.DISARMED) {
                         this.log(this.name + ' was Disarmed but now Armed');
                         this.targetState = newState;
                         this.targetAlarmState.updateValue(this.targetState); 
-                    } else if(this.targetState != AlarmState.DISARM && newState == AlarmState.DISARM) {
+                    } else if(this.targetState != AlarmState.DISARMED && newState == AlarmState.DISARMED) {
                         this.log(this.name + ' was Armed but now Disarmed');
-                        this.targetState = AlarmState.DISARM;
+                        this.targetState = AlarmState.DISARMED;
                         this.targetAlarmState.updateValue(this.targetState); 
                     }
                 }
@@ -129,13 +129,13 @@ HttpSecuritySystemAccessory.prototype = {
     
         switch (state) {
           case AlarmState.DISARMED:
-            return "DISARM";
+            return "DISARMED";
           case AlarmState.AWAY_ARM:
-            return "AWAY";     
+            return "AWAY_ARM";     
           case AlarmState.STAY_ARM:
-            return "STAY";
+            return "STAY_ARM";
           case AlarmState.NIGHT_ARM:
-            return "NIGHT";
+            return "NIGHT_ARM";
           case AlarmState.ALARM_TRIGGERED:
             return "TRIGGERED";
           default:
