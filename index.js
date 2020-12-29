@@ -141,6 +141,7 @@ HttpSecuritySystemAccessory.prototype = {
           case AlarmState.TRIGGERED:
             return "TRIGGERED";
           default:
+          	this.log(this.name + "stateToString: UNKNOWN (" + str(state) + ")");
             return "UNKNOWN";
         }
     },
