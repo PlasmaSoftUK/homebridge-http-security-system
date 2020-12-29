@@ -58,8 +58,10 @@ HttpSecuritySystemAccessory.prototype = {
                   newState = AlarmState.ALARM_TRIGGERED;
                 }
                 
+                this.log(this.name + ' status update: ' + state + ' (' + newState + ')');
+                
                 if (this.currentState != newState){
-                    this.log(this.name + ' status update: ' + state);
+                    this.log(this.name + ' new status update: ' + state);
                     this.currentState = newState;
                     this.currentAlarmState.updateValue(this.currentState);
                     
@@ -89,7 +91,7 @@ HttpSecuritySystemAccessory.prototype = {
             });
         });
         req.on('error', err => {
-            this.currentState = AlarmState.DISARM;
+            this.currentState = AlarmState.DISARMED;
             this.log("Error in monitorAlarmState: "+ err.message);
 
             setTimeout(this.monitorAlarmState.bind(this), this.statusPollInMs);
@@ -186,8 +188,8 @@ HttpSecuritySystemAccessory.prototype = {
         this.initialising = true;
         
         //Set all states to closed
-        this.currentState = AlarmState.DISARM;
-        this.targetState = AlarmState.DISARM; 
+        this.currentState = AlarmState.DISARMED;
+        this.targetState = AlarmState.DISARMED; 
         this.currentStateString = "Disarmed";
         this.log(" Initial State: Disarmed");
 
