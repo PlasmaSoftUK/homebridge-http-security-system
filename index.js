@@ -11,7 +11,7 @@ module.exports = function(homebridge) {
     Characteristic = homebridge.hap.Characteristic;
     AlarmState = homebridge.hap.Characteristic.SecuritySystemCurrentState;
     
-    homebridge.registerAccessory("homebridge-http-security-system", "HTTPSecuritySystem", HttpSecuritySystemAccessory);
+    homebridge.registerAccessory("homebridge-http-securitysystem", "HTTPSecuritySystem", HttpSecuritySystemAccessory);
 };
 
 function HttpSecuritySystemAccessory(log, config) {
