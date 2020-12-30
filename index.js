@@ -61,10 +61,11 @@ HttpSecuritySystemAccessory.prototype = {
                 }
                 */
                 
+                /*
                 this.log(this.name + '  Pre Monitor: Status Update: ' + this.alarmStateToString(newState) + ' (' + newState + ')');
                 this.log(this.name + '  Pre Monitor:  CurrentState: ' + this.alarmStateToString(this.currentState));
                 this.log(this.name + '  Pre Monitor:   TargetState: ' + this.alarmStateToString(this.targetState));
-                
+                */
                 
                 if (this.currentState != newState){
                     this.log(this.name + ' New Status Update: ' + newState);
@@ -89,10 +90,11 @@ HttpSecuritySystemAccessory.prototype = {
                     }
                 }
                 
-
+                
+				/*
                 this.log(this.name + ' Post Monitor:  CurrentState: ' + this.alarmStateToString(this.currentState));
                 this.log(this.name + ' Post Monitor:   TargetState: ' + this.alarmStateToString(this.targetState));
-
+				*/
                 
                 //Clear initialising flag first time this runs
                 this.initialising = false;

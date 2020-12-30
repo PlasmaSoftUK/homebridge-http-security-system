@@ -11,9 +11,11 @@ I would ideally like this integrated in to Homekit too, hence this plugin.
 
 The aim is to have the plugin call the same web service that Alexa uses to control the Alarm:
 
-http://127.0.0.1:4283/activate
+http://127.0.0.1:52576/NIGHT_ARM
+http://127.0.0.1:52576/STAY_ARM
+http://127.0.0.1:52576/AWAY_ARM
 
-http://127.0.0.1:4283/status
+http://127.0.0.1:52576/STATUS
 
 Then push that back in to HomeKit, and keep in sync if I use the Security Panel controls or Alexa.
 
@@ -30,8 +32,7 @@ Then in your config.json add this accessory:
 {
     "accessory": "HTTPSecuritySystem",
     "name": "Alarm",
-    "activateURL": "http://127.0.0.1:4283/activate",
-    "statusURL": "http://127.0.0.1:4283/status",
+    "controlURL": "http://127.0.0.1:52576",
     "statusPollInMs": 4000
 }
 ```
