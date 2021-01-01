@@ -1,4 +1,4 @@
-# homebridge-http-securitysystem
+# homebridge-http-security-system
 A Homebridge Plugin to control a Security System via HTTP commands
 
 
@@ -26,7 +26,7 @@ Then push that back in to HomeKit, and keep in sync if I use the Security Panel 
 
 # Install
                     
-sudo npm install -g https://github.com/PlasmaSoftUK/homebridge-http-securitysystem.git
+sudo npm install -g https://github.com/PlasmaSoftUK/homebridge-http-security-system.git
 
 
 Then in your config.json add this accessory:

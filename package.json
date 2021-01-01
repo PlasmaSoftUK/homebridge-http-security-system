@@ -18,12 +18,12 @@
   "license": "ISC",
   "repository": {
     "type": "git",
-    "url": "https://github.com/PlasmaSoftUK/homebridge-http-securitysystem.git"
+    "url": "https://github.com/PlasmaSoftUK/homebridge-http-security-system.git"
   },
   "bugs": {
-    "url": "https://github.com/PlasmaSoftUK/homebridge-http-securitysystem/issues"
+    "url": "https://github.com/PlasmaSoftUK/homebridge-http-security-system/issues"
   },
-  "homepage": "https://github.com/PlasmaSoftUK/homebridge-http-securitysystem",
+  "homepage": "https://github.com/PlasmaSoftUK/homebridge-http-security-system",
   "engines": {
     "node": ">=0.14.0",
     "homebridge": ">=1.0.0"
