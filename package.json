@@ -1,5 +1,5 @@
 {
-  "name": "homebridge-http-securitysystem",
+  "name": "homebridge-http-security-system",
   "version": "1.0.0",
   "description": "Homebridge HTTP Security System Plugin",
   "main": "index.js",
