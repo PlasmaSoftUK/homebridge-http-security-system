@@ -39,3 +39,9 @@ Then in your config.json add this accessory:
     "statusPollInMs": 4000
 }
 ```
+
+# Thanks
+
+I don't expect anything in return for the code I share but if it has helped you and you wish to thank me, feel free to buy me a coffee:
+
+https://www.buymeacoffee.com/plasmasoft
