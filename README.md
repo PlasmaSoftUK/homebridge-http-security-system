@@ -17,6 +17,7 @@ http://127.0.0.1:52576/STAY_ARM
 
 http://127.0.0.1:52576/AWAY_ARM
 
+http://127.0.0.1:52576/DISARMED
 
 http://127.0.0.1:52576/STATUS
 
@@ -28,6 +29,11 @@ Then push that back in to HomeKit, and keep in sync if I use the Security Panel 
                     
 sudo npm install -g https://github.com/PlasmaSoftUK/homebridge-http-security-system.git
 
+Following changes in Homebridge if you are installing this via the above method, you will then need to move the install from  its install directory because Homebridge no longer sees global modules. 
+
+sudo mv /usr/local/lib/node_modules/homebridge-http-security-system/ /var/lib/homebridge/node_modules/
+cd /var/lib/homebridge/node_modules/
+sudo chown homebridge:homebridge homebridge-http-security-system
 
 Then in your config.json add this accessory:
 
@@ -35,13 +41,7 @@ Then in your config.json add this accessory:
 {
     "accessory": "HTTPSecuritySystem",
     "name": "Alarm",
-    "controlURL": "http://127.0.0.1:52576",
+    "controlURL": "http://127.0.0.1:25276",
     "statusPollInMs": 4000
 }
 ```
-
-# Thanks
-
-I don't expect anything in return for the code I share but if it has helped you and you wish to thank me, feel free to buy me a coffee:
-
-https://www.buymeacoffee.com/plasmasoft
