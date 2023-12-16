@@ -11,15 +11,15 @@ I would ideally like this integrated in to Homekit too, hence this plugin.
 
 The aim is to have the plugin call the same web service that Alexa uses to control the Alarm:
 
-http://127.0.0.1:52576/NIGHT_ARM
+http://127.0.0.1:25276/NIGHT_ARM
 
-http://127.0.0.1:52576/STAY_ARM
+http://127.0.0.1:25276/STAY_ARM
 
-http://127.0.0.1:52576/AWAY_ARM
+http://127.0.0.1:25276/AWAY_ARM
 
-http://127.0.0.1:52576/DISARMED
+http://127.0.0.1:25276/DISARMED
 
-http://127.0.0.1:52576/STATUS
+http://127.0.0.1:25276/STATUS
 
 Then push that back in to HomeKit, and keep in sync if I use the Security Panel controls or Alexa.
 
