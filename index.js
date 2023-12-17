@@ -67,8 +67,20 @@ HttpSecuritySystemAccessory.prototype = {
                 this.log(this.name + '  Pre Monitor:   TargetState: ' + this.alarmStateToString(this.targetState));
                 */
                 
+                /*
+                STAY_ARM = 0;
+                AWAY_ARM = 1;
+                NIGHT_ARM = 2;
+                DISARMED = 3;
+                ALARM_TRIGGERED = 4;
+                
+                */
+                
                 if (this.currentState != newState){
-                    this.log(this.name + ' New Status Update: ' + newState);
+                    //this.log(this.name + ' currentState: ' + this.currentState + ' newState: ' + newState);
+                    this.log(this.name + '  Pre Monitor:     NewState: ' + this.alarmStateToString(newState) + ' (' + newState + ')');
+                    this.log(this.name + '  Pre Monitor: CurrentState: ' + this.alarmStateToString(this.currentState));
+                    this.log(this.name + '  Pre Monitor:  TargetState: ' + this.alarmStateToString(this.targetState));
                     this.currentState = newState;
                     this.currentAlarmState.updateValue(this.currentState);
                     
@@ -88,9 +100,9 @@ HttpSecuritySystemAccessory.prototype = {
                         this.targetState = AlarmState.DISARMED;
                         this.targetAlarmState.updateValue(this.targetState); 
                     } else {
-                        this.log(this.name + ' fell through state controls.');
-                        this.log(this.name + ' newState:' + this.newState);
-                        this.log(this.name + ' targetState:' + this.targetState);
+                        this.log(this.name + ' State Changed by HomeKit');
+                        this.log(this.name + ' newState:' + newState);
+                        //this.log(this.name + ' targetState:' + this.targetState);
                     }
                     
                 }
