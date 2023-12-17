@@ -88,7 +88,7 @@ HttpSecuritySystemAccessory.prototype = {
                         this.targetState = AlarmState.DISARMED;
                         this.targetAlarmState.updateValue(this.targetState); 
                     } else {
-                        this.log(this.name + ' fell through sate controls.');
+                        this.log(this.name + ' fell through state controls.');
                         this.log(this.name + ' newState:' + this.newState);
                         this.log(this.name + ' targetState:' + this.targetState);
                     }
